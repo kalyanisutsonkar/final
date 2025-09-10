@@ -7305,7 +7305,7 @@ span {
 }
 .hero-1 .hero-content {
   position: relative;
-  top: -140px;
+  top: -66px;
   z-index: 999;
 }
 @media (max-width: 575px) {

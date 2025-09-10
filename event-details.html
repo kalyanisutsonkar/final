@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF--8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gramentheme">
+    <meta name="description" content="Pixvent - Conference and Event HTML Template">
+    <title>Audio Vision & Event - Our Events</title>
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <style>
+        /* General Styles */
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://i.imgur.com/B9x2v8C.jpeg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        /* About Us Section */
+        .about-us-section {
+            padding: 120px 0;
+            background-color: #ffffff;
+            overflow: hidden;
+        }
+        .about-content h2 {
+            font-weight: 700;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+        }
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        /* Image Collage Styles */
+        .image-collage-wrapper {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .collage-image {
+            position: absolute;
+            border-radius: 12px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            border: 5px solid #fff;
+        }
+        .collage-image-1 { /* Front image */
+            width: 80%;
+            height: auto;
+            z-index: 2;
+        }
+        .collage-image-2 { /* Back image */
+            width: 75%;
+            top: -15%;
+            right: -10%;
+            z-index: 1;
+            transform: rotate(7deg);
+        }
+
+        /* Event Showcase Section */
+        .event-showcase {
+            padding: 100px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .section-title p {
+            color: #6c757d;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .filter-controls button {
+            background: none;
+            border: 2px solid #ddd;
+            color: #333;
+            padding: 10px 25px;
+            margin: 5px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-controls button.active,
+        .filter-controls button:hover {
+            background-color: #007bff;
+            color: #fff;
+            border-color: #007bff;
+        }
+
+        /* Photo Gallery */
+        .photo-gallery .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+            height: 300px;
+            margin-bottom: 24px; /* g-4 equivalent */
+            display: block; /* For hiding/showing */
+        }
+        .photo-gallery .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+        .gallery-item-overlay h5 {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        /* Animation for filtering */
+        .gallery-item.hide {
+            display: none;
+        }
+
+        /* Footer Styles */
+        .new-footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 80px 0 20px 0;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .new-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.7); /* This creates the dark overlay */
+        }
+        .new-footer .container {
+            position: relative;
+            z-index: 2;
+        }
+        .new-footer-socials {
+            margin-bottom: 30px;
+        }
+        .new-footer-socials a {
+            color: #fff;
+            font-size: 20px;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        .new-footer-socials a:hover {
+            color: #007bff; /* Or another highlight color */
+        }
+        .new-footer .footer-logo img {
+            max-width: 250px;
+            margin-bottom: 20px;
+        }
+        .new-footer p.footer-description {
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+            color: #ccc;
+            line-height: 1.8;
+        }
+        .footer-links-wrapper {
+            text-align: left;
+            padding-top: 40px;
+            border-top: 1px solid #444;
+        }
+        .footer-links-wrapper h5 {
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        .footer-links-wrapper ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links-wrapper ul li a {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 2.2;
+            transition: color 0.3s ease;
+        }
+        .footer-links-wrapper ul li a:hover {
+            color: #fff;
+        }
+        .footer-contact-info li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #ccc;
+        }
+        .footer-contact-info i {
+            margin-right: 15px;
+            margin-top: 5px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader"><div class="spinner"></div>
+            <div class="txt-loading">
+                <span data-text-preloader="A" class="letters-loading">A</span>
+                <span data-text-preloader="U" class="letters-loading">U</span>
+                <span data-text-preloader="D" class="letters-loading">D</span>
+                <span data-text-preloader="I" class="letters-loading">I</span>
+                <span data-text-preloader="O" class="letters-loading">O</span>
+                <span data-text-preloader=" " class="letters-loading"> </span>
+                <span data-text-preloader="V" class="letters-loading">V</span>
+                <span data-text-preloader="I" class="letters-loading">I</span>
+                <span data-text-preloader="S" class="letters-loading">S</span>
+                <span data-text-preloader="I" class="letters-loading">I</span>
+                <span data-text-preloader="O" class="letters-loading">O</span>
+                <span data-text-preloader="N" class="letters-loading">N</span>
+            </div>
+            <p class="text-center">Loading</p>
+        </div>
+        <div class="loader"><div class="row"><div class="col-3 loader-section section-left"><div class="bg"></div></div><div class="col-3 loader-section section-left"><div class="bg"></div></div><div class="col-3 loader-section section-right"><div class="bg"></div></div><div class="col-3 loader-section section-right"><div class="bg"></div></div></div></div>
+    </div>
+
+    <header id="header-sticky" class="header-1 header-new">
+        <div class="container">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="logo">
+                        <a href="index.html" class="header-logo"><img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img"></a>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li class="active"><a href="events.html">Events</a></li>
+                                        <li><a href="services.html">Services</a></li>
+                                        <li><a href="contact.html">Contact Us</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header__hamburger d-xl-block my-auto">
+                            <div class="sidebar__toggle"><i class="fas fa-bars"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-us-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 wow fadeInLeft" data-wow-delay=".3s">
+                        <div class="about-content">
+                            <h2>About Audio Vision & Event</h2>
+                            <p>
+                                Renowned for our unparalleled dedication to crafting unforgettable experiences, we specialize in curating moments that transcend the ordinary; be it the sanctity of a wedding, the warmth of a family gathering, or the professionalism of a corporate rendezvous.
+                            </p>
+                            <p>
+                                Our comprehensive suite of services ensures a seamless journey from inception to fruition. From conceptualization to execution, we take pride in being the foremost choice for realizing your most cherished event dreams.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 wow fadeInRight" data-wow-delay=".5s">
+                        <div class="image-collage-wrapper">
+                            <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2070" alt="Elegant event decoration" class="collage-image collage-image-2">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2070" alt="Corporate conference hall" class="collage-image collage-image-1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="event-showcase">
+            <div class="container">
+                <div class="section-title wow fadeInUp" data-wow-delay=".3s">
+                    <h2>Event Showcase</h2>
+                    <p>Explore our diverse portfolio of successfully managed events. From grand corporate functions to intimate private gatherings, we bring visions to life.</p>
+                </div>
+
+                <div class="filter-controls wow fadeInUp" data-wow-delay=".4s">
+                    <button type="button" class="active" data-filter="all">All</button>
+                    <button type="button" data-filter="corporate">Corporate</button>
+                    <button type="button" data-filter="wedding">Weddings</button>
+                    <button type="button" data-filter="concert">Concerts</button>
+                    <button type="button" data-filter="private">Private Parties</button>
+                </div>
+
+                <div class="photo-gallery">
+                    <div class="row" id="gallery-grid">
+                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".3s" data-category="corporate">
+                            <img src="/assets/img/home-3/event/event-1.jpg" alt="Corporate Event">
+                            <div class="gallery-item-overlay">
+                                <h5>Corporate Summit</h5>
+                                <p>Corporate</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".4s" data-category="wedding">
+                            <img src="/assets/img/home-3/event/corporate.png" alt="Wedding Event">
+                            <div class="gallery-item-overlay">
+                                <h5>Grand Wedding</h5>
+                                <p>Wedding</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".5s" data-category="concert">
+                            <img src="/assets/img/home-3/event/event-7.jpg" alt="Concert Event">
+                            <div class="gallery-item-overlay">
+                                <h5>Music Festival</h5>
+                                <p>Concert</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".6s" data-category="private">
+                            <img src="/assets/img/home-3/event/event-5.jpg" alt="Private Party">
+                            <div class="gallery-item-overlay">
+                                <h5>Birthday Bash</h5>
+                                <p>Private Party</p>
+                            </div>
+                        </div>
+                         <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".7s" data-category="corporate">
+                            <img src="/assets/img/home-3/event/event-2.jpg" alt="Conference">
+                            <div class="gallery-item-overlay">
+                                <h5>Annual Conference</h5>
+                                <p>Corporate</p>
+                            </div>
+                        </div>
+                         <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".8s" data-category="wedding">
+                            <img src="/assets/img/home-3/event/event-8.jpg" alt="Reception">
+                            <div class="gallery-item-overlay">
+                                <h5>Elegant Reception</h5>
+                                <p>Wedding</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="new-footer" style="background-image: url('assets/img/footer-bg.jpg');">
+        <div class="container">
+            <div class="new-footer-socials wow fadeInUp" data-wow-delay=".3s">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            
+            <a href="index.html" class="footer-logo wow fadeInUp" data-wow-delay=".4s">
+                <img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img">
+            </a>
+            
+            <p class="footer-description wow fadeInUp" data-wow-delay=".5s">
+                Planning a full event has never been easier! Audio Vision & Event offers a wide range of services to make your events stress-free and memorable. From premium corporate events and destination wedding planning to small-scale birthday parties and private gatherings, you can be sure we have it all covered.
+            </p>
+    
+            <div class="row footer-links-wrapper">
+                <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".6s">
+                    <h5>QUICK LINKS</h5>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".7s">
+                    <h5>SERVICES</h5>
+                    <ul>
+                        <li><a href="#">Corporate Events</a></li>
+                        <li><a href="#">Wedding Planner</a></li>
+                        <li><a href="#">Music & Entertainment</a></li>
+                        <li><a href="#">Private Parties</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".8s">
+                    <h5>OTHER LINKS</h5>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp" data-wow-delay=".9s">
+                    <h5>CONTACT INFO</h5>
+                    <ul class="footer-contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i><span>VIP Road, Khanij Nagar, Raipur, Chhattisgarh, India</span></li>
+                        <li><i class="fas fa-phone"></i><span>+91 79742 91971</span></li>
+                        <li><i class="fas fa-envelope"></i><span>manojaudiovision1234@gmail.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        // Simple Gallery Filter
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterButtons = document.querySelectorAll('.filter-controls button');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        const itemCategory = item.getAttribute('data-category');
+                        
+                        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        item.style.transform = 'scale(0.9)';
+                        item.style.opacity = '0';
+
+                        setTimeout(() => {
+                            if (filterValue === 'all' || filterValue === itemCategory) {
+                                item.classList.remove('hide');
+                            } else {
+                                item.classList.add('hide');
+                            }
+                            item.style.transform = 'scale(1)';
+                            item.style.opacity = '1';
+                        }, 300);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
