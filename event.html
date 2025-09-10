@@ -1,44 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--<< Header Area >>-->
-    
-<!-- Mirrored from ex-coders.com/html/pixvent/event.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 31 Aug 2025 11:23:18 GMT -->
-<head>
-       <!-- ========== Meta Tags ========== -->
+    <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="author" content="Gramentheme">
         <meta name="description" content="Pixvent - Conference and Event HTML Template">
-        <!-- ======== Page title ============ -->
         <title>Pixvent - Conference and Event HTML Template</title>
-        <!--<< Favcion >>-->
         <link rel="shortcut icon" href="assets/img/favicon.png">
-        <!--<< Bootstrap min.css >>-->
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <!--<< All Min Css >>-->
         <link rel="stylesheet" href="assets/css/all.min.css">
-        <!--<< Animate.css >>-->
         <link rel="stylesheet" href="assets/css/animate.css">
-        <!--<< Magnific Popup.css >>-->
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <!--<< MeanMenu.css >>-->
         <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <!--<< Swiper Bundle.css >>-->
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <!--<< Nice Select.css >>-->
         <link rel="stylesheet" href="assets/css/nice-select.css">
-        <!--<< Main.css >>-->
         <link rel="stylesheet" href="assets/css/main.css">
-                            
+
+        <style>
+            /* Make the image container a reference point for the overlay and clip the zooming image */
+            .gt-news-image {
+                position: relative;
+                overflow: hidden;
+            }
+
+            /* Style the overlay */
+            .gt-news-image::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(22, 13, 41, 0.7); /* You can change this overlay color */
+                mix-blend-mode: multiply; /* This creates the color blend effect */
+                opacity: 0; /* Hidden by default */
+                transition: opacity 0.4s ease; /* Smooth fade-in transition */
+            }
+            
+            /* Add a smooth transition for the image zoom effect */
+            .gt-news-image img {
+                transition: transform 0.4s ease;
+            }
+
+            /* Trigger the effects on hovering the parent card */
+            .gt-news-card-item:hover .gt-news-image::after {
+                opacity: 1; /* Make the overlay visible on hover */
+            }
+
+            .gt-news-card-item:hover .gt-news-image img {
+                transform: scale(1.1); /* Zoom the image slightly on hover */
+            }
+
+            /* ============== CUSTOM CSS FOR TABS & SCROLL ANIMATION ============== */
+
+            /* 1. Keyframes for the zoom-out animation */
+            @keyframes zoomOut {
+              from {
+                transform: scale(1.15);
+                opacity: 0;
+              }
+              to {
+                transform: scale(1);
+                opacity: 1;
+              }
+            }
+
+            /* 2. Style the image container to hide the overflow during animation */
+            .gt-event-image {
+              overflow: hidden;
+            }
+            
+            /* 3. Prepare the image for animation (initially hidden and scaled up) */
+            .gt-event-schedule-item .gt-event-image img {
+              opacity: 0;
+              transform: scale(1.15);
+            }
+
+            /* 4. Trigger the animation when the '.animated' class is added by wow.js */
+            .gt-event-schedule-item.animated .gt-event-image img {
+              animation-name: zoomOut;
+              animation-duration: 0.8s;
+              animation-fill-mode: forwards;
+              /* The animation delay is handled by the 'data-wow-delay' attribute in the HTML */
+            }
+
+            /* 5. Custom styling for the tabs to match your request */
+            .gt-event-schedule-wrapper .nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin-bottom: 50px;
+                border: none;
+            }
+
+            .gt-event-schedule-wrapper .nav-link {
+                border: 1px solid #e0e0e0;
+                border-radius: 50px;
+                padding: 10px 30px;
+                font-weight: 600;
+                color: #1E0942;
+                background-color: #ffffff;
+                transition: all 0.3s ease-in-out;
+            }
+
+            .gt-event-schedule-wrapper .nav-link.active,
+            .gt-event-schedule-wrapper .nav-link:hover {
+                background: linear-gradient(270deg, #F9940A 0%, #F9C30A 100%);
+                color: #ffffff;
+                border-color: #F9C30A;
+            }
+        </style>
+                                                                
     </head>
     <body>
 
-  
-         <!-- Preloader Start -->
-         <div id="preloader" class="preloader">
+ 
+        <div id="preloader" class="preloader">
             <div class="animation-preloader">
-                <div class="spinner">                
+                <div class="spinner">                       
                 </div>
                 <div class="txt-loading">
                     <span data-text-preloader="A" class="letters-loading">
@@ -97,7 +178,7 @@
                     </span> 
                     <span data-text-preloader="S" class="letters-loading">
                         S
-                    </span>  
+                    </span>    
                 </div>
                 <p class="text-center">Loading</p>
             </div>
@@ -119,16 +200,13 @@
             </div>
         </div>  
 
-        <!-- GT Back To Top Start -->
         <button id="gt-back-top" class="gt-back-to-top show">
             <i class="fa-regular fa-arrow-up"></i>
         </button>
 
-        <!-- GT MouseCursor Start -->
         <div class="mouseCursor cursor-outer"></div>
         <div class="mouseCursor cursor-inner"></div>
         
-        <!-- Offcanvas Area Start -->
         <div class="fix-area">
             
             <div class="offcanvas__info">
@@ -202,7 +280,6 @@
         </div>
         <div class="offcanvas__overlay"></div>
 
-        <!-- Header Section Start -->
         <header id="header-sticky" class="header-1 header-new">
             <div class="container-fluid">
                 <div class="mega-menu-wrapper">
@@ -221,89 +298,7 @@
                                                 <a href="index.html">
                                                     Home 
                                                 </a>
-                                                <!-- <ul class="submenu has-homemenu">
-                                                    <li>
-                                                        <div class="homemenu-items">
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb">
-                                                                    <img src="assets/img/header/home-1.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index.html" class="gt-theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                       Business Forum
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-2.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-3.html" class="gt-theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                        Teac Ai Conference
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-3.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-4.html" class="gt-theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                       Design Conference
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-4.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-5.html" class="gt-theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                       Music Event
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu">
-                                                                <div class="homemenu-thumb mb-15">
-                                                                    <img src="assets/img/header/home-5.jpg" alt="img">
-                                                                    <div class="demo-button">
-                                                                        <a href="index-6.html" class="gt-theme-btn">
-                                                                            Multi Page
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="homemenu-content text-center">
-                                                                    <h4 class="homemenu-title">
-                                                                       Fashion Event
-                                                                    </h4>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </li> -->
-                                            <li class="has-dropdown active d-xl-none">
+                                                <li class="has-dropdown active d-xl-none">
                                                 <a href="index.html" class="border-none">
                                                 Home
                                                 </a>
@@ -345,31 +340,16 @@
                                                 </a>
                                                 <ul class="submenu">
                                                     <li><a href="book-an-event.html">Book An Event</a></li>
-                                                    <!-- <li><a href="event-details.html">Eevent Detaills</a></li> -->
-                                                </ul>
+                                                    </ul>
                                             </li>
                                             <li>
                                                 <a href="our-client.html">Our Works</a>
                                             </li>
-                                            <!-- <li>
-                                                <a href="speaker-details.html">
-                                                    Speaker
-                                                </a>
-                                                <ul class="submenu">
-                                                    <li><a href="speaker.html">Speaker</a></li>
-                                                    <li><a href="speaker-details.html">Speaker Detaills</a></li>
-                                                </ul>
-                                            </li> -->
                                            <li>
                                                 <a href="about.html">
                                                     About Us
                                                 </a>
-                                                <!-- <ul class="submenu">
-                                                    <li><a href="news-grid.html">Blog Grid</a></li>
-                                                    <li><a href="news.html">Blog Standard</a></li>
-                                                    <li><a href="news-details.html">Blog Details</a></li>
-                                                </ul> -->
-                                            </li>
+                                                </li>
                                             <li>
                                                 <a href="contact.html">Contact Us</a>
                                             </li>
@@ -384,7 +364,7 @@
                             </div>
                             <div class="header-button">
                                 <a href="book-an-event.html" class="gt-theme-btn">
-                                   <i class="fa-solid fa-ticket-simple"></i> book event
+                                    <i class="fa-solid fa-ticket-simple"></i> book event
                                 </a>
                             </div>
                             <div class="header__hamburger d-xl-block my-auto">
@@ -398,7 +378,6 @@
             </div>
         </header>
 
-        <!-- GT Search Start -->
         <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
             <div class="search-popup__content">
@@ -411,7 +390,6 @@
             </div>
         </div>
 
-        <!-- Gt-Breadcrumb-Wrapper Start -->
         <div class="gt-breadcrumb-wrapper fix">
             <div class="gt-top-shape">
                 <img src="assets/img/inner-page/breadcrumb/bg-shape.png" alt="img">
@@ -428,23 +406,22 @@
                         <h1 class="wow fadeInUp" data-wow-delay=".3s">ALL EVENT</h1>
                     </div>
                     <ul class="gt-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
-                    <li>
-                        <a href="index.html">
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </li>
-                    <li>
-                        <span>ALL EVENT</span>
-                    </li>
-                  </ul>
+                        <li>
+                            <a href="index.html">
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </li>
+                        <li>
+                            <span>ALL EVENT</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
 
-        <!-- GT Event-Schedule Section Start -->
         <section class="gt-events-schedule-section section-padding fix">
             <div class="gt-left-shape">
                 <img src="assets/img/home-1/event/circle-shape-2.png" alt="img">
@@ -464,22 +441,22 @@
                 </div>
                 <div class="gt-event-schedule-wrapper">
                     <ul class="nav" role="tablist">
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".2s">
+                        <li class="nav-item">
                             <a href="#technical" data-bs-toggle="tab" class="nav-link active" aria-selected="false" role="tab" tabindex="-1">
                                 day 01
                             </a>
                         </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".4s">
+                        <li class="nav-item">
                             <a href="#work" data-bs-toggle="tab" class="nav-link" aria-selected="true" role="tab">
                                 day 02
                             </a>
                         </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".6s">
+                        <li class="nav-item">
                             <a href="#ambition" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab" tabindex="-1">
                                 day 03
                             </a>
                         </li>
-                        <li class="nav-item wow fadeInUp" data-wow-delay=".8s">
+                        <li class="nav-item">
                             <a href="#skill" data-bs-toggle="tab" class="nav-link" aria-selected="false" role="tab" tabindex="-1">
                                 day 04
                             </a>
@@ -489,7 +466,7 @@
                         <div id="technical" class="tab-pane fade active show" role="tabpanel">
                             <div class="row">
                                 <div class="col-xl-12">
-                                    <div class="gt-event-schedule-item">
+                                    <div class="gt-event-schedule-item wow fadeInUp" data-wow-delay=".3s">
                                         <div class="gt-dot-shape">
                                             <img src="assets/img/home-1/event/line-shape-2.png" alt="">
                                         </div>
@@ -532,7 +509,7 @@
                                             <a href="event-details.html" class="gt-theme-btn"><i class="fa-solid fa-arrow-up"></i> get tickets</a>
                                         </div>
                                     </div>
-                                    <div class="gt-event-schedule-item">
+                                    <div class="gt-event-schedule-item wow fadeInUp" data-wow-delay=".5s">
                                         <div class="gt-dot-shape">
                                             <img src="assets/img/home-1/event/line-shape-2.png" alt="">
                                         </div>
@@ -575,7 +552,7 @@
                                             <a href="event-details.html" class="gt-theme-btn"><i class="fa-solid fa-arrow-up"></i> get tickets</a>
                                         </div>
                                     </div>
-                                    <div class="gt-event-schedule-item">
+                                    <div class="gt-event-schedule-item wow fadeInUp" data-wow-delay=".7s">
                                         <div class="gt-dot-shape">
                                             <img src="assets/img/home-1/event/line-shape-2.png" alt="">
                                         </div>
@@ -1031,41 +1008,39 @@
             </div>
         </section>
 
-        <!-- Gt-Marquee Section Start -->
         <div class="gt-marquee-section-2 fix">
             <div class="mycustom-marque">
-              <div class="scrolling-wrap gt-style-3">
-               <div class="comm">
-                   <div></div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> marketing</div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> BUSINESS</div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> branding</div>
-               </div>
-               <div class="comm">
-                   <div></div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> marketing</div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> BUSINESS</div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> branding</div>
-               </div>
-               <div class="comm">
-                   <div></div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> marketing</div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> BUSINESS</div>
-                   <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> branding</div>
+                <div class="scrolling-wrap gt-style-3">
+                   <div class="comm">
+                        <div></div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> marketing</div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> BUSINESS</div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> branding</div>
+                   </div>
+                   <div class="comm">
+                        <div></div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> marketing</div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> BUSINESS</div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> branding</div>
+                   </div>
+                   <div class="comm">
+                        <div></div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> marketing</div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> BUSINESS</div>
+                        <div class="cmn-textslide"><img src="assets/img/home-1/marque/01.png" alt="img"> branding</div>
+                   </div>
                </div>
            </div>
-         </div>
         </div>
 
-        <!-- Gt-Event-Ticket Section Start -->
         <section class="gt-event-ticket-section section-padding fix bg-cover" style="background-image: url(assets/img/home-1/event/event-bg-2.png);">
             <div class="gt-blur-shape">
                 <img src="assets/img/home-1/event/blur-shape.png" alt="img">
             </div>
             <div class="container">
                 <div class="gt-section-title text-center">
-                     <span class="gt-sub-title gt-bg text-white wow fadeInUp">buy tickets</span>
-                     <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">
+                       <span class="gt-sub-title gt-bg text-white wow fadeInUp">buy tickets</span>
+                       <h2 class="text-white wow fadeInUp" data-wow-delay=".3s">
                         buy a ticket be the <br>
                         first one
                     </h2>
@@ -1095,8 +1070,8 @@
                                         <p>18$</p>
                                     </div>
                                 </div>
-                             </div>
-                             <ul class="gt-list-item">
+                               </div>
+                               <ul class="gt-list-item">
                                 <li>
                                     <span>Lunch & Coffee :</span>
                                     Yes
@@ -1105,11 +1080,11 @@
                                     <span>Certificate :</span>
                                     Yes
                                 </li>
-                            </ul>
-                            <div class="gt-card-button">
-                                 <a href="event-details.html" class="gt-theme-btn gt-style-2">PURCHASE TICKET</a>
-                            </div>
-                          </div>
+                               </ul>
+                               <div class="gt-card-button">
+                                   <a href="event-details.html" class="gt-theme-btn gt-style-2">PURCHASE TICKET</a>
+                               </div>
+                           </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".5s">
@@ -1136,8 +1111,8 @@
                                         <p>18$</p>
                                     </div>
                                 </div>
-                             </div>
-                             <ul class="gt-list-item">
+                               </div>
+                               <ul class="gt-list-item">
                                 <li>
                                     <span>Lunch & Coffee :</span>
                                     Yes
@@ -1146,11 +1121,11 @@
                                     <span>Certificate :</span>
                                     Yes
                                 </li>
-                            </ul>
-                            <div class="gt-card-button">
-                                 <a href="event-details.html" class="gt-theme-btn gt-style-2">PURCHASE TICKET</a>
-                            </div>
-                          </div>
+                               </ul>
+                               <div class="gt-card-button">
+                                   <a href="event-details.html" class="gt-theme-btn gt-style-2">PURCHASE TICKET</a>
+                               </div>
+                           </div>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay=".7s">
@@ -1177,8 +1152,8 @@
                                         <p>18$</p>
                                     </div>
                                 </div>
-                             </div>
-                             <ul class="gt-list-item">
+                               </div>
+                               <ul class="gt-list-item">
                                 <li>
                                     <span>Lunch & Coffee :</span>
                                     Yes
@@ -1187,18 +1162,17 @@
                                     <span>Certificate :</span>
                                     Yes
                                 </li>
-                            </ul>
-                            <div class="gt-card-button">
-                                 <a href="event-details.html" class="gt-theme-btn gt-style-2">PURCHASE TICKET</a>
-                            </div>
-                          </div>
+                               </ul>
+                               <div class="gt-card-button">
+                                   <a href="event-details.html" class="gt-theme-btn gt-style-2">PURCHASE TICKET</a>
+                               </div>
+                           </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Gt-News Section Start -->
         <section class="gt-news-section-2 section-padding fix">
             <div class="container">
                 <div class="gt-section-title text-center">
@@ -1228,13 +1202,13 @@
                                     <div class="post-date">
                                     <h5>30</h5>
                                     <p>april</p>
-                                  </div>
-                                  <a href="news-details.html" class="gt-link-btn">
-                                     <span class="gt-icon-btn">
-                                         <i class="fa-solid fa-chevrons-right"></i>
-                                     </span>
-                                     <span class="gt-radius-btn">READ MORE</span>
-                                  </a>
+                                    </div>
+                                <a href="news-details.html" class="gt-link-btn">
+                                   <span class="gt-icon-btn">
+                                        <i class="fa-solid fa-chevrons-right"></i>
+                                   </span>
+                                   <span class="gt-radius-btn">READ MORE</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1258,13 +1232,13 @@
                                     <div class="post-date">
                                     <h5>30</h5>
                                     <p>april</p>
-                                  </div>
-                                  <a href="news-details.html" class="gt-link-btn">
-                                     <span class="gt-icon-btn">
-                                         <i class="fa-solid fa-chevrons-right"></i>
-                                     </span>
-                                     <span class="gt-radius-btn">READ MORE</span>
-                                  </a>
+                                    </div>
+                                <a href="news-details.html" class="gt-link-btn">
+                                   <span class="gt-icon-btn">
+                                        <i class="fa-solid fa-chevrons-right"></i>
+                                   </span>
+                                   <span class="gt-radius-btn">READ MORE</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1288,13 +1262,13 @@
                                     <div class="post-date">
                                     <h5>30</h5>
                                     <p>april</p>
-                                  </div>
-                                  <a href="news-details.html" class="gt-link-btn">
-                                     <span class="gt-icon-btn">
-                                         <i class="fa-solid fa-chevrons-right"></i>
-                                     </span>
-                                     <span class="gt-radius-btn">READ MORE</span>
-                                  </a>
+                                    </div>
+                                <a href="news-details.html" class="gt-link-btn">
+                                   <span class="gt-icon-btn">
+                                        <i class="fa-solid fa-chevrons-right"></i>
+                                   </span>
+                                   <span class="gt-radius-btn">READ MORE</span>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1302,7 +1276,6 @@
             </div>
         </section>
 
-        <!-- Gt-Footer Section Start -->
         <footer class="gt-footer-section fix bg-cover" style="background-image: url(assets/img/home-1/footer/footer-bg-2.png);">
             <div class="container">
                 <div class="gt-footer-widget-wrapper">
@@ -1342,30 +1315,18 @@
                 </div>
             </div>
         </footer>
-         
-        <!--<< All JS Plugins >>-->
+        
         <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <!--<< Viewport Js >>-->
         <script src="assets/js/viewport.jquery.js"></script>
-        <!--<< Bootstrap Js >>-->
         <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <!--<< nice-selec Js >>-->
         <script src="assets/js/jquery.nice-select.min.js"></script>
-        <!--<< Waypoints Js >>-->
         <script src="assets/js/jquery.waypoints.js"></script>
-        <!--<< Counterup Js >>-->
         <script src="assets/js/jquery.counterup.min.js"></script>
-        <!--<< Swiper Slider Js >>-->
         <script src="assets/js/swiper-bundle.min.js"></script>
-        <!--<< MeanMenu Js >>-->
         <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <!--<< Magnific Popup Js >>-->
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <!--<< Wow Animation Js >>-->
         <script src="assets/js/wow.min.js"></script>
-        <!--<< Main.js >>-->
         <script src="assets/js/main.js"></script>
     </body>
 
-<!-- Mirrored from ex-coders.com/html/pixvent/event.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 31 Aug 2025 11:23:18 GMT -->
 </html>

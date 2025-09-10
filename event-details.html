@@ -127,56 +127,118 @@
             border-color: #007bff;
         }
 
-        /* Photo Gallery */
-        .photo-gallery .gallery-item {
+       /* Main section styling */
+       .gallery-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+        .section-title p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Justified Gallery Layout using Flexbox */
+        .photo-gallery .gallery-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px; /* Spacing between images */
+        }
+
+        .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s ease;
-            height: 300px;
-            margin-bottom: 24px; /* g-4 equivalent */
-            display: block; /* For hiding/showing */
+            height: 300px; /* Adjust this height to control the row height */
+            flex-grow: 1; /* Allows items to grow and fill the row */
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .photo-gallery .gallery-item img {
+        
+        /* ✅ CHANGE 1: ADDED THIS CSS RULE TO HIDE ITEMS */
+        .gallery-item.hide {
+            display: none;
+        }
+
+        .gallery-item img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
+            object-fit: cover; /* Ensures images cover the container without stretching */
+            transition: transform 0.4s ease, filter 0.4s ease;
         }
+        
+        /* Overlay styles */
         .gallery-item-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
-            color: white;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
-            padding: 25px;
+            padding: 20px;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s ease;
-        }
-        .gallery-item-overlay h5 {
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .gallery-item:hover .gallery-item-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .gallery-item:hover img {
-            transform: scale(1.1);
+            transition: opacity 0.4s ease;
         }
         
-        /* Animation for filtering */
-        .gallery-item.hide {
-            display: none;
+        .gallery-item-overlay h5 {
+            color: #fff;
+            font-weight: 600;
+            margin: 0;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+        }
+        
+        .gallery-item-overlay p {
+            color: #ddd;
+            font-size: 0.9em;
+            margin: 5px 0 0 0;
+            transform: translateY(10px);
+            transition: transform 0.4s ease 0.1s;
         }
 
+        /* Hover effects */
+        .gallery-item:hover img {
+            transform: scale(1.05);
+            filter: brightness(0.9);
+        }
+
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay h5,
+        .gallery-item:hover .gallery-item-overlay p {
+            transform: translateY(0);
+        }
+
+        /* Custom "zoomOut" animation for WOW.js */
+        @keyframes zoomOut {
+          from {
+            opacity: 0;
+            transform: scale(1.15);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        
+        /* Apply the animation using the class that WOW.js will use */
+        .wow.zoomOut {
+          animation-name: zoomOut;
+        }
         /* Footer Styles */
         .new-footer {
             background-color: #1a1a1a;
@@ -350,52 +412,176 @@
                     <button type="button" data-filter="private">Private Parties</button>
                 </div>
 
-                <div class="photo-gallery">
-                    <div class="row" id="gallery-grid">
-                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".3s" data-category="corporate">
-                            <img src="/assets/img/home-3/event/event-1.jpg" alt="Corporate Event">
-                            <div class="gallery-item-overlay">
-                                <h5>Corporate Summit</h5>
-                                <p>Corporate</p>
-                            </div>
+                
+    <section class="gallery-section">
+        <div class="container">
+            
+
+            <div class="photo-gallery">
+                <div class="gallery-grid">
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".3s" data-category="corporate">
+                        <img src="assets/img/home-3/event/event-1.jpg" alt="Corporate Event">
+                        <div class="gallery-item-overlay">
+                            <h5>Corporate Summit</h5>
+                            <p>Corporate</p>
                         </div>
-                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".4s" data-category="wedding">
-                            <img src="/assets/img/home-3/event/corporate.png" alt="Wedding Event">
-                            <div class="gallery-item-overlay">
-                                <h5>Grand Wedding</h5>
-                                <p>Wedding</p>
-                            </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".4s" data-category="wedding">
+                        <img src="assets/img/home-3/event/corporate.png" alt="Wedding Event">
+                        <div class="gallery-item-overlay">
+                            <h5>Grand Wedding</h5>
+                            <p>Wedding</p>
                         </div>
-                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".5s" data-category="concert">
-                            <img src="/assets/img/home-3/event/event-7.jpg" alt="Concert Event">
-                            <div class="gallery-item-overlay">
-                                <h5>Music Festival</h5>
-                                <p>Concert</p>
-                            </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="concert">
+                        <img src="assets/img/home-3/event/event-7.jpg" alt="Concert Event">
+                        <div class="gallery-item-overlay">
+                            <h5>Music Festival</h5>
+                            <p>Concert</p>
                         </div>
-                        <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".6s" data-category="private">
-                            <img src="/assets/img/home-3/event/event-5.jpg" alt="Private Party">
-                            <div class="gallery-item-overlay">
-                                <h5>Birthday Bash</h5>
-                                <p>Private Party</p>
-                            </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="concert">
+                        <img src="assets/img/home-3/event/concert.jpg" alt="Concert Event">
+                        <div class="gallery-item-overlay">
+                            <h5>Music Festival</h5>
+                            <p>Concert</p>
                         </div>
-                         <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".7s" data-category="corporate">
-                            <img src="/assets/img/home-3/event/event-2.jpg" alt="Conference">
-                            <div class="gallery-item-overlay">
-                                <h5>Annual Conference</h5>
-                                <p>Corporate</p>
-                            </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="concert">
+                        <img src="assets/img/home-3/event/concert2.jpg" alt="Concert Event">
+                        <div class="gallery-item-overlay">
+                            <h5>Music Festival</h5>
+                            <p>Concert</p>
                         </div>
-                         <div class="col-lg-4 col-md-6 gallery-item wow zoomIn" data-wow-delay=".8s" data-category="wedding">
-                            <img src="/assets/img/home-3/event/event-8.jpg" alt="Reception">
-                            <div class="gallery-item-overlay">
-                                <h5>Elegant Reception</h5>
-                                <p>Wedding</p>
-                            </div>
+                    </div>
+            
+                    
+
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".3s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding1.jpg" alt="Wedding Moment 1">
+                        <div class="gallery-item-overlay">
+                            <h5>Lakeside Vows</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".4s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding2.jpg" alt="Wedding Moment 2">
+                        <div class="gallery-item-overlay">
+                            <h5>Sparkler Send-off</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding3.jpg" alt="Wedding Moment 3">
+                        <div class="gallery-item-overlay">
+                            <h5>Beach Ceremony</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".3s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding4.jpg" alt="Wedding Moment 4">
+                        <div class="gallery-item-overlay">
+                            <h5>Floral Arch</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".4s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding5.jpg" alt="Wedding Moment 5">
+                        <div class="gallery-item-overlay">
+                            <h5>First Dance</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding6.jpg" alt="Wedding Moment 6">
+                        <div class="gallery-item-overlay">
+                            <h5>Haldi Celebration</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".3s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding7.jpg" alt="Wedding Moment 7">
+                        <div class="gallery-item-overlay">
+                            <h5>Garden Reception</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".4s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding8.jpg" alt="Wedding Moment 8">
+                        <div class="gallery-item-overlay">
+                            <h5>Sangeet Night</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding9.jpg" alt="Wedding Moment 9">
+                        <div class="gallery-item-overlay">
+                            <h5>Intimate Dinner</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+                     <div class="gallery-item wow zoomOut" data-wow-delay=".6s" data-category="wedding">
+                        <img src="assets/img/home-3/event/wedding10.jpg" alt="Wedding Moment 10">
+                        <div class="gallery-item-overlay">
+                            <h5>Transparent Tent Setup</h5>
+                            <p>Wedding</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".3s" data-category="private">
+                        <img src="assets/img/home-3/event/privateparty1.jpg" alt="Private Party 1">
+                        <div class="gallery-item-overlay">
+                            <h5>Birthday Bash</h5>
+                            <p>Private Party</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".4s" data-category="corporate">
+                        <img src="assets/img/home-3/event/privateparty2.jpg" alt="Private Party 2">
+                        <div class="gallery-item-overlay">
+                            <h5>Anniversary Dinner</h5>
+                            <p>Private Party</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="corporate">
+                        <img src="assets/img/home-3/event/privateparty3.jpg" alt="Private Party 3">
+                        <div class="gallery-item-overlay">
+                            <h5>Garden Soiree</h5>
+                            <p>Private Party</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".6s" data-category="corporate">
+                        <img src="assets/img/home-3/event/privateparty5.jpg" alt="Private Party 4">
+                        <div class="gallery-item-overlay">
+                            <h5>Elegant Gathering</h5>
+                            <p>Private Party</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".3s" data-category="private">
+                        <img src="assets/img/home-3/event/privateparty14jpg.jpg" alt="Private Party 5">
+                        <div class="gallery-item-overlay">
+                            <h5>Milestone Celebration</h5>
+                            <p>Private Party</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".4s" data-category="private">
+                        <img src="assets/img/home-3/event/privateparty6.jpg" alt="Private Party 6">
+                        <div class="gallery-item-overlay">
+                            <h5>Cocktail Hour</h5>
+                            <p>Private Party</p>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-item wow zoomOut" data-wow-delay=".5s" data-category="private">
+                        <img src="assets/img/home-3/event/privateparty7.jpg" alt="Private Party 7">
+                        <div class="gallery-item-overlay">
+                            <h5>Family Reunion</h5>
+                            <p>Private Party</p>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
             </div>
         </section>
     </main>
@@ -465,36 +651,36 @@
     <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <script src="assets/js/wow.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    
+    <script>
+        new WOW().init();
+    </script>
+
 
     <script>
-        // Simple Gallery Filter
         document.addEventListener('DOMContentLoaded', function () {
             const filterButtons = document.querySelectorAll('.filter-controls button');
             const galleryItems = document.querySelectorAll('.gallery-item');
 
             filterButtons.forEach(button => {
                 button.addEventListener('click', function () {
+                    // Set the active class on the clicked button
                     filterButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
 
                     const filterValue = this.getAttribute('data-filter');
 
+                    // Show or hide gallery items based on the filter
                     galleryItems.forEach(item => {
                         const itemCategory = item.getAttribute('data-category');
                         
-                        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                        item.style.transform = 'scale(0.9)';
-                        item.style.opacity = '0';
-
-                        setTimeout(() => {
-                            if (filterValue === 'all' || filterValue === itemCategory) {
-                                item.classList.remove('hide');
-                            } else {
-                                item.classList.add('hide');
-                            }
-                            item.style.transform = 'scale(1)';
-                            item.style.opacity = '1';
-                        }, 300);
+                        if (filterValue === 'all' || filterValue === itemCategory) {
+                            item.classList.remove('hide');
+                        } else {
+                            item.classList.add('hide');
+                        }
                     });
                 });
             });
