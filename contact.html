@@ -1,281 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="author" content="Gramentheme">
-        <meta name="description" content="Pixvent - Conference and Event HTML Template">
-        <title>Audio Vision & Event - Our Works</title>
-        <link rel="shortcut icon" href="assets/img/favicon.png">
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/all.min.css">
-        <link rel="stylesheet" href="assets/css/animate.css">
-        <link rel="stylesheet" href="assets/css/magnific-popup.css">
-        <link rel="stylesheet" href="assets/css/meanmenu.css">
-        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
-        <link rel="stylesheet" href="assets/css/nice-select.css">
-        <link rel="stylesheet" href="assets/css/main.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Gramentheme">
+    <meta name="description" content="Pixvent - Conference and Event HTML Template">
+    <title>AV Events - Contact Us</title>
+    <link rel="shortcut icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/nice-select.css">
+    <link rel="stylesheet" href="assets/css/main.css">
 
-        <style>
-            .photo-gallery .gallery-item img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                border-radius: 15px;
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================
+           PREVIOUS CUSTOM STYLES (UNCHANGED)
+           ========================================================== */
+        /* Hero Section Styling */
+        .hero-section.hero-1 {
+            height: 100vh;
+            padding: 0 0 5% 8%; /* Added bottom and left padding */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end; /* Changed to bottom-align */
+            justify-content: flex-start; /* Changed to left-align */
+        }
+
+        .hero-slider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .swiper-slide .bg-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.6); /* Matches your original brightness */
+        }
+
+        /* Zoom-in Animation */
+        @keyframes zoomInEffect {
+            from {
+                transform: scale(1);
             }
-            .photo-gallery .gallery-item {
-                overflow: hidden;
-                border-radius: 15px;
-                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            to {
+                transform: scale(1.15); /* Slightly increased zoom for better effect */
             }
-            .photo-gallery .gallery-item:hover img {
-                transform: scale(1.05);
+        }
+
+        /* Apply animation only to the active slide */
+        .swiper-slide-active .bg-image {
+            animation: zoomInEffect 5s ease-out forwards;
+        }
+
+        /* Navigation Arrow Styling */
+        .swiper-button-prev,
+        .swiper-button-next {
+            color: #ffffff; /* White arrows */
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .swiper-button-prev:hover,
+        .swiper-button-next:hover {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .swiper-button-prev::after,
+        .swiper-button-next::after {
+            font-size: 20px; /* Adjust arrow icon size */
+            font-weight: bold;
+        }
+        
+        /* New Contact Section Styling */
+        .new-contact-section { background-color: #fff; padding: 100px 0; }
+        .contact-info-left { padding-right: 40px; }
+        .contact-info-left h2 { font-size: 2.5rem; font-weight: bold; margin-bottom: 40px; }
+        .info-block { display: flex; align-items: flex-start; margin-bottom: 30px; }
+        .info-block .icon { font-size: 24px; color: #FF6600; margin-right: 20px; min-width: 30px; text-align: center; }
+        .info-block .info-text h5 { font-size: 0.9rem; color: #888; margin-bottom: 5px; font-weight: normal; text-transform: uppercase; }
+        .info-block .info-text p { font-size: 1.1rem; font-weight: 600; color: #000; margin: 0; }
+        .contact-social-icons a { color: #fff; background-color: #FF6600; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; margin-right: 10px; text-decoration: none; transition: background-color 0.3s ease; }
+        .contact-social-icons a:hover { background-color: #e65c00; }
+        .contact-form-right .form-control { background-color: #f7f7f7; border: 1px solid #e0e0e0; border-radius: 5px; padding: 15px; margin-bottom: 20px; font-size: 1rem; }
+        .contact-form-right .form-control:focus { background-color: #fff; border-color: #FF6600; box-shadow: none; }
+        .contact-form-right .btn-submit { background-color: #FF6600; color: #fff; font-weight: bold; padding: 15px 40px; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s ease; text-transform: uppercase; }
+        .contact-form-right .btn-submit:hover { background-color: #e65c00; }
+        .map-section { padding: 0; margin: 0; }
+        .map-section iframe { width: 100%; height: 450px; border: 0; }
+        
+        /* NEW NAVBAR STYLES */
+        #header-sticky.header-1 {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+        #header-sticky.header-1.sticky { background-color: #222222; }
+        .header-main { display: flex; align-items: center; justify-content: space-between; }
+        .header-right { margin-left: auto; }
+        .mean__menu-wrapper { flex-grow: 1; }
+        .main-menu nav > ul { display: flex; justify-content: center; align-items: center; }
+        .main-menu nav > ul > li > a {
+            color: rgba(255, 255, 255, 0.7) !important;
+            transition: color 0.3s ease;
+        }
+        .main-menu nav > ul > li > a:hover {
+            color: rgba(255, 255, 255, 1) !important;
+        }
+        .nav-phone-btn a {
+            background-color: #FF6600;
+            color: #fff !important;
+            padding: 10px 20px !important;
+            border-radius: 50px;
+            margin-left: 15px;
+            font-weight: 600;
+        }
+        .nav-phone-btn a i {
+            margin-right: 8px;
+        }
+        .nav-phone-btn a:hover {
+            background-color: #e65c00;
+            color: #fff !important;
+        }
+        .new-footer { background-color: #1a1a1a; color: #ffffff; padding: 80px 0 20px 0; text-align: center; background-size: cover; background-position: center; position: relative; }
+        .new-footer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.7); }
+        .new-footer .container { position: relative; z-index: 2; }
+        .new-footer-socials { margin-bottom: 30px; }
+        .new-footer-socials a { color: #fff; font-size: 20px; margin: 0 15px; transition: color 0.3s ease; }
+        .new-footer-socials a:hover { color: #007bff; }
+        .new-footer .footer-logo img { max-width: 250px; margin-bottom: 20px; }
+        .new-footer p.footer-description { max-width: 800px; margin: 0 auto 50px auto; color: #ccc; line-height: 1.8; }
+        .footer-links-wrapper { text-align: left; padding-top: 40px; border-top: 1px solid #444; }
+        .footer-links-wrapper h5 { font-weight: bold; margin-bottom: 20px; color: #fff; }
+        .footer-links-wrapper ul { list-style: none; padding: 0; }
+        .footer-links-wrapper ul li a { color: #ccc; text-decoration: none; line-height: 2.2; transition: color 0.3s ease; }
+        .footer-links-wrapper ul li a:hover { color: #fff; }
+        .footer-contact-info li { display: flex; align-items: flex-start; margin-bottom: 15px; color: #ccc; }
+        .footer-contact-info i { margin-right: 15px; margin-top: 5px; color: #fff; }
+
+        /* ==========================================================
+           === NEW ANIMATED TEXT STYLES FOR HERO SLIDER ===
+           ========================================================== */
+        @keyframes slideUpFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(100px);
             }
-            .new-footer {
-                background-color: #1a1a1a;
-                color: #ffffff;
-                padding: 80px 0 20px 0;
-                text-align: center;
-                background-size: cover;
-                background-position: center;
-                position: relative;
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
-            .new-footer::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                background-color: rgba(0,0,0,0.7);
-            }
-            .new-footer .container {
-                position: relative;
-                z-index: 2;
-            }
-            .new-footer-socials {
-                margin-bottom: 30px;
-            }
-            .new-footer-socials a {
-                color: #fff;
-                font-size: 20px;
-                margin: 0 15px;
-                transition: color 0.3s ease;
-            }
-            .new-footer-socials a:hover {
-                color: #007bff;
-            }
-            .new-footer .footer-logo img {
-                max-width: 250px;
-                margin-bottom: 20px;
-            }
-            .new-footer p.footer-description {
-                max-width: 800px;
-                margin: 0 auto 50px auto;
-                color: #ccc;
-                line-height: 1.8;
-            }
-            .footer-links-wrapper {
-                text-align: left;
-                padding-top: 40px;
-                border-top: 1px solid #444;
-            }
-            .footer-links-wrapper h5 {
-                font-weight: bold;
-                margin-bottom: 20px;
-                color: #fff;
-            }
-            .footer-links-wrapper ul {
-                list-style: none;
-                padding: 0;
-            }
-            .footer-links-wrapper ul li a {
-                color: #ccc;
-                text-decoration: none;
-                line-height: 2.2;
-                transition: color 0.3s ease;
-            }
-             .footer-links-wrapper ul li a:hover {
-                color: #fff;
-             }
-            .footer-contact-info li {
-                display: flex;
-                align-items: flex-start;
-                margin-bottom: 15px;
-                color: #ccc;
-            }
-            .footer-contact-info i {
-                margin-right: 15px;
-                margin-top: 5px;
-                color: #fff;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="preloader" class="preloader">
-            <div class="animation-preloader">
-                <div class="spinner"></div>
-                <div class="txt-loading">
-                    <span data-text-preloader="A" class="letters-loading">A</span>
-                    <span data-text-preloader="U" class="letters-loading">U</span>
-                    <span data-text-preloader="D" class="letters-loading">D</span>
-                    <span data-text-preloader="I" class="letters-loading">I</span>
-                    <span data-text-preloader="O" class="letters-loading">O</span>
-                    <span data-text-preloader=" " class="letters-loading"> </span>
-                    <span data-text-preloader="V" class="letters-loading">V</span>
-                    <span data-text-preloader="I" class="letters-loading">I</span>
-                    <span data-text-preloader="S" class="letters-loading">S</span>
-                    <span data-text-preloader="I" class="letters-loading">I</span>
-                    <span data-text-preloader="O" class="letters-loading">O</span>
-                    <span data-text-preloader="N" class="letters-loading">N</span>
-                </div>
-                <p class="text-center">Loading</p>
-            </div>
-            <div class="loader"><div class="row"><div class="col-3 loader-section section-left"><div class="bg"></div></div><div class="col-3 loader-section section-left"><div class="bg"></div></div><div class="col-3 loader-section section-right"><div class="bg"></div></div><div class="col-3 loader-section section-right"><div class="bg"></div></div></div></div>
+        }
+
+        .hero-text-overlay {
+            position: relative;
+            z-index: 10;
+            text-align: left; /* Aligned text to the left */
+            color: #fff;
+        }
+
+        .hero-text-content {
+            font-family: 'Montserrat', sans-serif; /* New font family */
+            opacity: 0; /* Start hidden for the animation */
+            animation: slideUpFromBottom 1.5s ease-out 0.5s forwards; /* Animation with 0.5s delay */
+        }
+
+        .hero-text-content h1 {
+            font-size: 4rem; /* Adjusted font size */
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        
+        .hero-text-content p {
+            font-size: 1.1rem; /* Corrected font size */
+            font-weight: 300;
+            max-width: 500px; /* Adjusted max width */
+            margin: 0; /* Removed auto margin */
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="preloader" class="preloader">
+        <div class="animation-preloader">
+            <div class="spinner"></div>
+            <div class="txt-loading">
+                <span data-text-preloader="A" class="letters-loading">A</span>
+                <span data-text-preloader="U" class="letters-loading">U</span>
+                <span data-text-preloader="D" class="letters-loading">D</span>
+                <span data-text-preloader="I" class="letters-loading">I</span>
+                <span data-text-preloader="O" class="letters-loading">O</span>
+                <span data-text-preloader=" " class="letters-loading"> </span>
+                <span data-text-preloader="V" class="letters-loading">V</span>
+                <span data-text-preloader="I" class="letters-loading">I</span>
+                <span data-text-preloader="S" class="letters-loading">S</span>
+                <span data-text-preloader="I" class="letters-loading">I</span>
+                <span data-text-preloader="O" class="letters-loading">O</span>
+                <span data-text-preloader="N" class="letters-loading">N</span>
         </div>
+            <p class="text-center">Loading</p>
+    </div> 
+        <div class="loader">
+            <div class="row">
+                <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-left"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+                <div class="col-3 loader-section section-right"><div class="bg"></div></div>
+            </div>
+        </div>
+    </div> 
 
-        <header id="header-sticky" class="header-1 header-new">
-            <div class="container-fluid">
-                <div class="mega-menu-wrapper">
-                    <div class="header-main">
-                        <div class="logo">
-                            <a href="index.html" class="header-logo"><img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img"></a>
+    <button id="gt-back-top" class="gt-back-to-top show">
+        <i class="fa-regular fa-arrow-up"></i>
+    </button>
+
+    <div class="mouseCursor cursor-outer"></div>
+    <div class="mouseCursor cursor-inner"></div>
+
+    <div class="fix-area">
+        <div class="offcanvas__info">
+            <div class="offcanvas__wrapper">
+                <div class="offcanvas__content">
+                    <div class="offcanvas__top mb-5 d-flex justify-content-between align-items-center">
+                        <div class="offcanvas__logo">
+                            <a href="index.html">
+                                <img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img">
+                            </a>
                         </div>
-                        <div class="header-right d-flex justify-content-end align-items-center mt-0">
-                            <div class="mean__menu-wrapper"><div class="main-menu"><nav id="mobile-menu">
-                                <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li class="active"><a href="our-client.html">Our Works</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
-                                </ul>
-                            </nav></div></div>
-                            <div class="header__hamburger d-xl-block my-auto"><div class="sidebar__toggle"><i class="fas fa-bars"></i></div></div>
+                        <div class="offcanvas__close">
+                            <button><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="mobile-menu fix mb-3"></div>
+                    <div class="offcanvas__contact">
+                        <h4>Contact Info</h4>
+                        <ul>
+                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon"><i class="fal fa-map-marker-alt"></i></div><div class="offcanvas__contact-text"><a target="_blank" href="#">VIP Road, Khanij Nagar, Raipur</a></div></li>
+                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon mr-15"><i class="fal fa-envelope"></i></div><div class="offcanvas__contact-text"><a href="mailto:manojaudiovision1234@gmail.com"><span class="mailto:manojaudiovision1234@gmail.com">manojaudiovision1234@gmail.com</span></a></div></li>
+                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon mr-15"><i class="fal fa-clock"></i></div><div class="offcanvas__contact-text"><a target="_blank" href="#">Mod-friday, 09am -05pm</a></div></li>
+                            <li class="d-flex align-items-center"><div class="offcanvas__contact-icon mr-15"><i class="far fa-phone"></i></div><div class="offcanvas__contact-text"><a href="tel:+917974291971">MANOJ SOLANKI: 7974291971</a><br><a href="tel:+918770679295">NARENDAR PARMAR: 8770679295</a></div></li>
+                        </ul>
+                        <div class="social-icon d-flex align-items-center"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas__overlay"></div>
+    
+    <header id="header-sticky" class="header-1 header-new">
+        <div class="container-fluid">
+            <div class="mega-menu-wrapper">
+                <div class="header-main">
+                    <div class="logo">
+                        <a href="index.html" class="header-logo">
+                            <img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img">
+                        </a>
+                    </div>
+                    <div class="header-right d-flex justify-content-end align-items-center">
+                        <div class="mean__menu-wrapper">
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                            <li><a href="pricing.html">Pages</a></li>
+                                            <li><a href="event-details.html">Event</a></li>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="service.html">Services</a></li>
+                                            <li><a href="contact.html">Contact Us</a></li>
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="header-right-icon">
+                            <a href="#" class="main-header__search search-toggler">
+                                <i class="fa-regular fa-magnifying-glass"></i>
+                            </a>
+                        </div>
+                        <div class="header-button">
+                            <a href="book-an-event.html" class="gt-theme-btn">
+                                <i class="fa-solid fa-ticket-simple"></i> book event
+                            </a>
+                        </div>
+                        <div class="header__hamburger d-xl-block my-auto">
+                            <div class="sidebar__toggle">
+                                <i class="fas fa-bars"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </header>
 
-        <div class="gt-breadcrumb-wrapper fix">
-            <div class="gt-top-shape"><img src="assets/img/inner-page/breadcrumb/bg-shape.png" alt="img"></div>
-            <div class="container-fluid">
-                <div class="gt-page-heading bg-cover" style="background-image: url(assets/img/inner-page/breadcrumb/bg.png);">
-                    <div class="gt-breadcrumb-sub-title"><h1 class="wow fadeInUp" data-wow-delay=".3s">Our Works</h1></div>
-                    <ul class="gt-breadcrumb-items wow fadeInUp" data-wow-delay=".5s">
+    <div class="search-popup"><div class="search-popup__overlay search-toggler"></div><div class="search-popup__content"><form role="search" method="get" class="search-popup__form" action="#"><input type="text" id="search" name="search" placeholder="Search Here..."><button type="submit" aria-label="search submit" class="search-btn"><span><i class="fa-regular fa-magnifying-glass"></i></span></button></form></div></div>
+
+    <section class="hero-section hero-1 fix">
+        <div class="hero-text-overlay">
+            <div class="container">
+                 <div class="hero-text-content">
+                    <h1>Contact Us</h1>
+                    <p>Need help planning your next event? Look no further. We can provide everything you need to ensure your event is a success.</p>
+                </div>
+            </div>
+        </div>
+        <div class="swiper hero-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="bg-image" style="background-image: url('assets/img/home-3/event/privateparty2.jpg');"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero2.jpg');"></div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero3.jpg');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="new-contact-section section-padding fix">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6 wow fadeInLeft" data-wow-delay=".3s">
+                    <div class="contact-info-left">
+                        <h2>WANT TO WORK WITH US?</h2>
+                        <div class="info-block">
+                            <div class="icon"><i class="fas fa-phone-alt"></i></div>
+                            <div class="info-text">
+                                <h5>TALK TO OUR CLIENT SUPPORT TEAM</h5>
+                                <p><a href="tel:+917974291971" style="text-decoration:none; color:inherit;">+91-797-429-1971</a></p>
+                                <p><a href="tel:+918770679295" style="text-decoration:none; color:inherit;">+91-877-067-9295</a></p>
+                            </div>
+                        </div>
+                        <div class="info-block">
+                            <div class="icon"><i class="fas fa-envelope"></i></div>
+                            <div class="info-text">
+                                <h5>WRITE TO US ABOUT YOUR NEEDS</h5>
+                                <p><a href="mailto:manojaudiovision1234@gmail.com" style="text-decoration:none; color:inherit; word-break: break-all;">manojaudiovision1234@gmail.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-social-icons mt-5">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 col-md-6 wow fadeInRight" data-wow-delay=".5s">
+                    <div class="contact-form-right">
+
+                        <form id="contact-form-ajax" method="POST">
+                            
+                            <input type="hidden" name="access_key" value="146b61f0-3f37-40a0-9e36-68b8479bcaa2">
+                            
+                            <div class="row">
+                                <div class="col-12">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Name *" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" name="phone" class="form-control" placeholder="Phone Number *" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" name="email" class="form-control" placeholder="Your Email *" required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea name="message" class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-submit">Submit Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="map-section">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3718.537574732565!2d79.13061637512404!3d21.2503254804561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd4c72f0ff497d3%3A0x82a7a5c534ab2030!2sNagpur%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1726065524278!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
+
+    <footer class="new-footer" style="background-image: url('assets/img/footer-bg.jpg');">
+        <div class="container">
+            <div class="new-footer-socials">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <a href="index.html" class="footer-logo">
+                <img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img">
+            </a>
+            <p class="footer-description">
+                Planning a full event has never been easier! Audio Vision & Event offers a wide range of services to make your events stress-free and memorable. From premium corporate events and destination wedding planning to small-scale birthday parties and private gatherings, you can be sure we have it all covered.
+            </p>
+
+            <div class="row footer-links-wrapper">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>QUICK LINKS</h5>
+                    <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><i class="fa-solid fa-chevron-right"></i></li>
-                        <li><span>Our Works</span></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>SERVICES</h5>
+                    <ul>
+                        <li><a href="#">Corporate Events</a></li>
+                        <li><a href="#">Wedding Planner</a></li>
+                        <li><a href="#">Music & Entertainment</a></li>
+                        <li><a href="#">Private Parties</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>OTHER LINKS</h5>
+                    <ul>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5>CONTACT INFO</h5>
+                    <ul class="footer-contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i><span>VIP Road, Khanij Nagar, Raipur, Chhattisgarh, India</span></li>
+                        <li><i class="fas fa-phone"></i><span>+91 79742 91971</span></li>
+                        <li><i class="fas fa-envelope"></i><span>manojaudiovision1234@gmail.com</span></li>
                     </ul>
                 </div>
             </div>
         </div>
-
-        <section class="photo-gallery section-padding">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/1.jpg" alt="Event Photo 1"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/2.jpg" alt="Event Photo 2"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/3.jpg" alt="Event Photo 3"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/4.jpg" alt="Event Photo 4"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/5.jpg" alt="Event Photo 5"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/6.jpg" alt="Event Photo 6"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/7.jpg" alt="Event Photo 7"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/8.jpg" alt="Event Photo 8"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/9.jpg" alt="Event Photo 9"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/10.jpg" alt="Event Photo 10"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/11.jpg" alt="Event Photo 11"></div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="gallery-item"><img src="assets/img/gallery/12.jpg" alt="Event Photo 12"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <footer class="new-footer" style="background-image: url('assets/img/footer-bg.jpg');">
-            <div class="container">
-                <div class="new-footer-socials">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-                <a href="index.html" class="footer-logo">
-                    <img class="logo-img" src="assets/img/logo/Logo AVE.png" alt="logo-img">
-                </a>
-                <p class="footer-description">
-                    Planning a full event has never been easier! Audio Vision & Event offers a wide range of services to make your events stress-free and memorable. From premium corporate events and destination wedding planning to small-scale birthday parties and private gatherings, you can be sure we have it all covered.
-                </p>
-
-                <div class="row footer-links-wrapper">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5>QUICK LINKS</h5>
-                        <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5>SERVICES</h5>
-                        <ul>
-                            <li><a href="#">Corporate Events</a></li>
-                            <li><a href="#">Wedding Planner</a></li>
-                            <li><a href="#">Music & Entertainment</a></li>
-                            <li><a href="#">Private Parties</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5>OTHER LINKS</h5>
-                        <ul>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Testimonials</a></li>
-                            <li><a href="#">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <h5>CONTACT INFO</h5>
-                        <ul class="footer-contact-info">
-                            <li><i class="fas fa-map-marker-alt"></i><span>VIP Road, Khanij Nagar, Raipur, Chhattisgarh, India</span></li>
-                            <li><i class="fas fa-phone"></i><span>+91 79742 91971</span></li>
-                            <li><i class="fas fa-envelope"></i><span>manojaudiovision1234@gmail.com</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
         </footer>
-        <script src="assets/js/jquery-3.7.1.min.js"></script>
-        <script src="assets/js/bootstrap.bundle.min.js"></script>
-        <script src="assets/js/jquery.nice-select.min.js"></script>
-        <script src="assets/js/jquery.waypoints.js"></script>
-        <script src="assets/js/jquery.counterup.min.js"></script>
-        <script src="assets/js/swiper-bundle.min.js"></script>
-        <script src="assets/js/jquery.meanmenu.min.js"></script>
-        <script src="assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/wow.min.js"></script>
-        <script src="assets/js/main.js"></script>
-    </body>
+    
+    <script src="assets/js/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/viewport.jquery.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/jquery.meanmenu.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('contact-form-ajax');
+
+            form.addEventListener('submit', function (e) {
+                // Prevents the default form submission (page reload)
+                e.preventDefault();
+
+                // Create a FormData object from the form
+                const formData = new FormData(form);
+                const object = {};
+                formData.forEach((value, key) => {
+                    object[key] = value;
+                });
+                const json = JSON.stringify(object);
+
+                // Use the Fetch API to send the data
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: json
+                })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        // --- THIS IS WHERE THE SUCCESS ACTIONS HAPPEN ---
+                        alert("Message sent successfully! Thank you."); // Show the success alert
+                        form.reset(); // Clears all the form fields
+                    } else {
+                        console.log(response);
+                        alert("Error: " + jsonResponse.message); // Show an error alert
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                    alert("Something went wrong! Please try again."); // Show a network error alert
+                });
+            });
+        });
+    </script>
+</body>
 </html>
