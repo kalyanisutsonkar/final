@@ -27,7 +27,7 @@
            ========================================================== */
         /* Hero Section Styling */
         .hero-section.hero-1 {
-            height: 100vh;
+            height: 60vh;
             padding: 0 0 5% 8%; /* Added bottom and left padding */
             position: relative;
             overflow: hidden;
@@ -204,6 +204,105 @@
             margin: 0; /* Removed auto margin */
             line-height: 1.6;
         }
+
+        /* ==========================================================
+      RESPONSIVE MEDIA QUERIES
+   ========================================================== */
+
+/* For Tablets (e.g., iPads in portrait view) */
+@media (max-width: 991px) {
+    .hero-section.hero-1 {
+        height: 60vh; /* Make hero section shorter on tablets */
+        padding: 0 5%; /* Adjust padding */
+        align-items: center; /* Center content vertically */
+        text-align: center;
+    }
+
+    .hero-text-content {
+        text-align: center;
+    }
+
+    .hero-text-content h1 {
+        font-size: 3rem; /* Reduce font size */
+    }
+
+    .new-contact-section {
+        padding: 80px 0;
+    }
+
+    .contact-info-left h2 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .contact-form-right {
+        margin-top: 50px; /* Add space between info and form on tablets */
+    }
+
+    .info-block {
+        justify-content: center; /* Center the info blocks */
+    }
+
+    .contact-social-icons {
+        text-align: center;
+    }
+
+}
+
+/* For Mobile Devices (e.g., iPhones, Android phones) */
+@media (max-width: 767px) {
+    .header-button {
+        display: none; /* Hide the "book event" button on small screens */
+    }
+
+    .hero-section.hero-1 {
+        height: 50vh; /* Make hero even shorter for mobile */
+        padding: 0 15px; /* Standard mobile padding */
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.2rem; /* Further reduce title size */
+    }
+
+    .hero-text-content p {
+        font-size: 1rem; /* Adjust paragraph size */
+    }
+
+    .new-contact-section {
+        padding: 60px 0;
+    }
+    
+    .contact-info-left {
+        padding-right: 0; /* Remove right padding */
+    }
+
+    .contact-info-left h2 {
+        font-size: 1.8rem;
+    }
+    
+    .info-block {
+       flex-direction: column; /* Stack icon and text vertically */
+       align-items: center;
+       text-align: center;
+    }
+    
+    .info-block .icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .map-section iframe {
+        height: 300px; /* Reduce map height on mobile */
+    }
+
+    /* Adjust footer text alignment for better readability */
+    .footer-links-wrapper {
+        text-align: center;
+    }
+     .footer-links-wrapper .col-md-6 {
+        margin-bottom: 30px;
+    }
+}
     </style>
 </head>
 <body>

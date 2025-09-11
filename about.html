@@ -35,7 +35,7 @@
             /* Main hero container */
             .hero-section.hero-1 {
                 position: relative; 
-                height: 100vh; 
+                height: auto; 
                 overflow: hidden; /* Prevents content from spilling out */
             }
             
@@ -139,7 +139,7 @@
             }
             .loader-spinner div {
                 transform-origin: 25px 25px;
-                animation: loader-spinner-anim 1.2s linear infinite;
+                animation: loader-spinner-anim 0.8s linear infinite;
             }
             .loader-spinner div:after {
                 content: " ";
@@ -199,6 +199,137 @@
                     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 }
             }
+            /* ==========================================================
+          ==== RESPONSIVE MEDIA QUERIES FOR ALL DEVICES ====
+          ========================================================== */
+
+/* ----------------------------------------------------------
+          ## Medium Devices (Tablets, less than 992px)
+          ---------------------------------------------------------- */
+@media (max-width: 991px) {
+    /* Hero Section */
+    .hero-text-content h1 {
+        font-size: 3rem; /* Decrease heading size */
+    }
+
+    .hero-text-content p {
+        font-size: 1rem;
+        max-width: 100%; /* Allow paragraph to use more width */
+    }
+
+    /* Shorts Video Gallery */
+    .shorts-video-gallery-section {
+        padding: 60px 0; /* Reduce vertical padding */
+    }
+
+    .shorts-video-gallery-section .section-title h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Footer */
+    .footer-links-wrapper .col-lg-3 {
+        margin-bottom: 30px; /* Add space between stacked columns */
+    }
+
+    .new-footer p.footer-description {
+        margin-bottom: 40px;
+    }
+}
+
+
+/* ----------------------------------------------------------
+          ## Small Devices (Landscape Phones, less than 768px)
+          ---------------------------------------------------------- */
+@media (max-width: 767px) {
+    /* Hero Section */
+    .hero-section.hero-1 {
+        height: 80vh; /* Reduce height on smaller screens */
+    }
+
+    .hero-text-content h1 {
+        font-size: 2.5rem; /* Further decrease heading size */
+        line-height: 1.2;
+    }
+    
+    .hero-text-overlay .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    /* Shorts Video Gallery */
+    .shorts-grid {
+        grid-template-columns: 1fr; /* Stack videos in a single column */
+        gap: 25px;
+    }
+
+    .short-video-wrapper {
+        min-height: 550px; /* Adjust height for vertical video format */
+    }
+    
+    .shorts-video-gallery-section .section-title h2 {
+        font-size: 1.8rem;
+    }
+
+    .shorts-video-gallery-section .section-title p {
+        margin-bottom: 30px;
+    }
+
+    /* Footer */
+    .new-footer {
+        padding: 60px 15px 20px 15px;
+        text-align: center; /* Center align all footer content */
+    }
+
+    .footer-links-wrapper {
+        text-align: center; /* Center align widget titles and links */
+    }
+    
+    .footer-contact-info li {
+        justify-content: center; /* Center align contact items */
+        text-align: left; /* Keep text within item left-aligned */
+    }
+}
+
+
+/* ----------------------------------------------------------
+          ## Extra Small Devices (Portrait Phones, less than 576px)
+          ---------------------------------------------------------- */
+@media (max-width: 575px) {
+    /* Hero Section */
+    .hero-section.hero-1 {
+        height: 70vh; /* Further reduce height */
+    }
+    
+    .hero-text-content h1 {
+        font-size: 2rem; /* Smallest heading size */
+    }
+
+    .hero-text-content p {
+        font-size: 0.9rem;
+    }
+
+    /* Shorts Video Gallery */
+    .shorts-video-gallery-section {
+        padding: 50px 0;
+    }
+
+    .short-video-wrapper {
+        min-height: 500px; /* Further adjust video height */
+    }
+
+    /* Footer */
+    .new-footer .footer-logo img {
+        max-width: 200px; /* Reduce logo size */
+    }
+
+    .new-footer p.footer-description {
+        font-size: 0.9rem;
+    }
+
+    .new-footer-socials a {
+        margin: 0 10px; /* Less space between social icons */
+    }
+}
         </style>
                                         
     </head>

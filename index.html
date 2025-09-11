@@ -92,7 +92,94 @@
             .hero-content h1 { animation-delay: 0.5s; }
             .hero-content h5 { animation-delay: 0.7s; }
             .gt-trust-section { animation-delay: 0.9s; }
+             
 
+            /* =================================================================
+============== ALL RESPONSIVE STYLES ==============
+================================================================== */
+
+/* For Tablets (e.g., iPads, screen width less than 992px) */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 2.8rem; /* Slightly smaller title */
+    }
+    .hero-content h5 {
+        font-size: 1.1rem; /* Slightly smaller subtitle */
+    }
+    .gt-trust-section {
+        flex-wrap: wrap; /* Allow items to wrap to the next line */
+        justify-content: center;
+        gap: 20px;
+    }
+    .gt-trust-content {
+        flex-basis: 40%; /* Show two items per row */
+    }
+    .hero-image {
+        display: none; /* Hide the large decorative image on tablets */
+    }
+    .gt-event-schedule-item {
+        flex-direction: column; /* Stack event items vertically */
+        text-align: center;
+    }
+    .gt-event-schedule-item .gt-event-image {
+        margin: 20px 0;
+    }
+    /* Reverses the order for the second item to maintain visual flow */
+    .gt-event-schedule-item:nth-child(2) {
+        flex-direction: column-reverse;
+    }
+    .footer-links-wrapper .col-md-6 {
+        text-align: center; /* Center footer columns */
+        margin-bottom: 30px;
+    }
+}
+
+/* For Mobile Devices (e.g., iPhones, screen width less than 768px) */
+@media (max-width: 768px) {
+    .header-button {
+        display: none; /* Hide the "book event" button on mobile */
+    }
+    .hero-section.hero-1 {
+        padding-top: 150px; /* Reduce top padding for smaller header area */
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 2.2rem; /* Further reduce title size */
+    }
+    .gt-client-info {
+        justify-content: center; /* Center the client info section */
+    }
+    .gt-section-title h2 {
+        font-size: 1.8rem; /* Make section titles smaller */
+    }
+    .gt-event-card-item, .gt-sponsor-item {
+        margin-bottom: 20px; /* Add space between stacked items */
+    }
+    .gt-event-top-section .col-md-4 {
+        flex: 0 0 100%; /* Make service cards full width */
+        max-width: 100%;
+    }
+}
+
+/* For Small Mobile Devices (e.g., older iPhones, screen width less than 576px) */
+@media (max-width: 576px) {
+    .gt-trust-content {
+        flex-basis: 45%; /* Adjust for better spacing */
+    }
+    .gt-trust-content h3 {
+        font-size: 1.5rem;
+    }
+    .gt-trust-content p {
+        font-size: 0.8rem;
+    }
+    .gt-sponsor-bg-wrapper {
+        text-align: center;
+        padding: 30px 15px;
+    }
+    .gt-sponsor-bg-wrapper .gt-qr-image {
+        display: none; /* Hide the QR code on very small screens */
+    }
+}
 
         </style>
                                 
@@ -323,13 +410,13 @@
             <div class="swiper hero-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="bg-image" style="background-image: url('assets/img/home-3/event/privateparty2.jpg');"></div>
+                        <div class="bg-image" style="background-image: url('assets/img/home-1/hero/group-bg.png');"></div>
                     </div>
                     <div class="swiper-slide">
                         <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero3.jpg');"></div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="bg-image" style="background-image: url('assets/img/home-3/event/privateparty14jpg.jpg');"></div>
+                        <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero1.jpg');"></div>
                     </div>
                   
                 </div>

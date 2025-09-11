@@ -319,6 +319,111 @@
             margin-top: 5px;
             color: #fff;
         }
+        /* ==========================================================
+      RESPONSIVE MEDIA QUERIES
+   ========================================================== */
+
+/* For Tablets (e.g., iPads) */
+@media (max-width: 992px) {
+    .hero-content h1 {
+        font-size: 3rem; /* Slightly smaller hero title */
+    }
+
+    .about-us-section {
+        padding: 80px 0;
+        text-align: center; /* Center align content for a better look on tablets */
+    }
+    
+    .about-content h2 {
+        font-size: 2.4rem;
+    }
+    
+    .image-collage-wrapper {
+        margin-top: 40px;
+        min-height: 400px;
+    }
+
+    .collage-image-1 {
+        width: 70%;
+    }
+    .collage-image-2 {
+        width: 65%;
+        top: -10%;
+        right: 0;
+    }
+
+    .gallery-item {
+        height: 250px; /* Adjust gallery item height for tablets */
+    }
+}
+
+/* For Mobile Devices (e.g., iPhones, Android phones) */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 50vh; /* Adjust hero height for mobile */
+    }
+    .hero-content h1 {
+        font-size: 2.2rem; /* Even smaller title for mobile */
+    }
+
+    .about-us-section {
+        padding: 60px 0;
+    }
+    .about-content h2 {
+        font-size: 2rem;
+    }
+    .about-content p {
+        font-size: 1rem;
+    }
+    
+    /* Stack collage images vertically on mobile */
+    .image-collage-wrapper {
+        min-height: auto;
+        display: block; /* Remove flexbox for simple stacking */
+    }
+    .collage-image {
+        position: relative; /* Remove absolute positioning */
+        width: 90% !important;
+        margin: 0 auto 20px auto; /* Center and add spacing */
+        transform: none !important; /* Reset rotation */
+        top: 0;
+        right: 0;
+    }
+    .collage-image-1 {
+      order: 1; /* Ensure the main image can be ordered if needed */
+    }
+    .collage-image-2 {
+      order: 2;
+    }
+
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    /* Stack filter buttons for better usability */
+    .filter-controls button {
+        display: block;
+        width: 80%;
+        margin: 10px auto;
+        padding: 12px 20px;
+    }
+
+    .gallery-item {
+        /* Each item takes full width on mobile */
+        width: 100%;
+        height: 280px; /* Taller items for a better mobile view */
+        flex-grow: 0; /* Disable growing behavior on mobile */
+    }
+    
+    /* Adjust footer layout for mobile */
+    .footer-links-wrapper {
+        text-align: center; /* Center footer links on mobile */
+    }
+    .footer-links-wrapper .col-md-6 {
+        margin-bottom: 30px;
+    }
+}
     </style>
 </head>
 <body>
