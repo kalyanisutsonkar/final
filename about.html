@@ -21,6 +21,137 @@
             /* ==========================================================
                     === NEW ANIMATED TEXT STYLES FOR HERO SLIDER ===
                     ========================================================== */
+
+                    /* ==========================================================
+   ====== CONSOLIDATED HERO SECTION STYLES ======
+========================================================== */
+
+/* 1. Main Hero Container
+---------------------------------------------------------- */
+.hero-section-redesigned {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 150px 0 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; /* This centers content by default */
+    overflow: hidden;
+}
+
+/* 2. Background Slider & Zoom Animation
+---------------------------------------------------------- */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Sits behind the content */
+}
+.hero-slider .bg-image,
+.swiper-slide .bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+}
+
+@keyframes zoomInEffect {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.swiper-slide-active .bg-image {
+    animation: zoomInEffect 8s ease-out forwards;
+}
+
+/* 3. Content Layout & Text Styling
+---------------------------------------------------------- */
+.hero-layout-wrapper {
+    position: relative;
+    z-index: 2; /* Sits on top of the slider */
+}
+
+.hero-text-content-wrapper {
+    color: #fff;
+    margin-bottom: 40px;
+}
+
+/* This is your new text block */
+.hero-text-content {
+    font-family: 'Montserrat', sans-serif;
+    opacity: 0;
+    animation: slideUpFromBottom 1.5s ease-out 0.5s forwards;
+    text-align: left; /* <<< THIS IS THE RULE TO ALIGN YOUR TEXT LEFT */
+}
+
+@keyframes slideUpFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-text-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+
+.hero-text-content p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0;
+    line-height: 1.6;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+/* 4. Responsive Styles (Tablet & Mobile)
+---------------------------------------------------------- */
+
+/* For Tablets (<= 991px) */
+@media (max-width: 991px) {
+    .hero-section-redesigned {
+        min-height: auto;
+        padding: 120px 0 40px 0;
+    }
+
+    .hero-layout-wrapper {
+        display: flex;
+        flex-direction: column-reverse; /* Flips order of image/text on mobile */
+    }
+
+    .hero-text-content-wrapper {
+        margin-top: 40px;
+        margin-bottom: 0;
+    }
+
+    .hero-text-content h1 {
+        font-size: 3rem;
+    }
+}
+
+/* For Mobile Devices (<= 767px) */
+@media (max-width: 767px) {
+    .hero-text-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-text-content p {
+        font-size: 1rem;
+    }
+}
             @keyframes slideUpFromBottom {
                 from {
                     opacity: 0;
@@ -525,26 +656,28 @@
             </div>
         </div>
 
-       <section class="hero-section hero-1 fix">
+        <section class="hero-section-redesigned"> 
             <div class="swiper hero-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="bg-image" style="background-image: url('assets/img/home-3/event/privateparty2.jpg');"></div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero2.jpg');"></div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero3.jpg');"></div>
-                    </div>
                 </div>
             </div>
-            <div class="hero-text-overlay">
-                <div class="container">
-                    <div class="hero-text-content">
-                        <h1>Crafting Unforgettable Experiences</h1>
-                        <p>Welcome to Audio Vision & Events. Dive into our story and discover the passion, creativity, and meticulous planning that we bring to every occasion, transforming your vision into a timeless memory.</p>
+        
+            <div class="container">
+                <div class="hero-layout-wrapper">
+        
+                    <div class="hero-text-content-wrapper">
+                        <div class="hero-content">
+                            
+                            <div class="hero-text-content text-align-left">
+                                <h1 class="text-align-left">CRAFTING UNFORGETTABLE EXPERIENCES</h1>
+                                <p>Welcome To Audio Vision & Events. Dive Into Our Story And Discover The Passion, Creativity, And Meticulous Planning That We Bring To Every Occasion, Transforming Your Vision Into A Timeless Memory.</p>
+                            </div>
+                            </div>
                     </div>
+        
                 </div>
             </div>
         </section>
@@ -576,13 +709,14 @@
                 <div class="shorts-grid">
                     
                     <div class="short-video-wrapper">
-                        <div class="loader-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                        <div class="loader-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+                    </div>
                         <iframe data-src="https://www.youtube.com/embed/QTMWHihqICc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     
                     <div class="short-video-wrapper">
                         <div class="loader-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                        <iframe data-src="https://www.youtube.com/embed/6_fjz-bOdEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe data-src="https://www.youtube.com/embed/ucrrEts-lSU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     
                     <div class="short-video-wrapper">
@@ -597,7 +731,7 @@
 
                     <div class="short-video-wrapper">
                         <div class="loader-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                        <iframe data-src="https://www.youtube.com/embed/6_fjz-bOdEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe data-src="https://www.youtube.com/embed/QTMWHihqICc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
 
                     <div class="short-video-wrapper">
@@ -625,10 +759,7 @@
                         <iframe data-src="https://www.youtube.com/embed/QTMWHihqICc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
 
-                    <div class="short-video-wrapper">
-                        <div class="loader-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-                        <iframe data-axsrc="https://www.youtube.com/embed/6_fjz-bOdEs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
+                    
                     
                     <div class="short-video-wrapper">
                         <div class="loader-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>

@@ -29,6 +29,7 @@
                 transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for background and text color */
             }
 
+            
             /* Add MORE padding to the top of the hero section to make space for the header */
             .hero-section.hero-1 {
                 padding-top: 220px; /* Increased this value. You can adjust it (e.g., 200px) if needed. */
@@ -149,6 +150,9 @@
     .gt-client-info {
         justify-content: center; /* Center the client info section */
     }
+    .gt-section-title {
+     margin-top: 187px;
+    }
     .gt-section-title h2 {
         font-size: 1.8rem; /* Make section titles smaller */
     }
@@ -160,6 +164,13 @@
         max-width: 100%;
     }
 }
+@media (max-width: 575px){
+.hero-1 .container-fluid {
+
+    padding: 173px 0;
+}}
+
+
 
 /* For Small Mobile Devices (e.g., older iPhones, screen width less than 576px) */
 @media (max-width: 576px) {
@@ -406,7 +417,7 @@
             </div>
         </div>
 
-        <section class="hero-section hero-1 fix">
+        <section class="main-banner hero-1 fix">
             <div class="swiper hero-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -484,6 +495,7 @@
             </div>
         </section>
         <style>
+        
         
 
 .hero-section.hero-1 {

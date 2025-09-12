@@ -23,11 +23,120 @@
     
     <style>
         /* ==========================================================
+            === REDESIGNED HERO SECTION STYLES ===
+========================================================== */
+
+/* Main container for the hero section */
+.hero-section-redesigned {
+    position: relative;
+    width: 100%;
+    min-height: 100vh; /* Ensures it's at least as tall as the screen */
+    padding: 150px 0 50px 0; /* Creates space for the absolute header at the top and content at the bottom */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-section-redesigned .hero-text-content {
+    text-align: left;
+}
+/* The background slider remains absolute */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+.hero-slider .bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.6);
+}
+@keyframes zoomInEffect {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+.swiper-slide-active .bg-image {
+    animation: zoomInEffect 8s ease-out forwards;
+}
+
+/* The new wrapper for controlling layout */
+.hero-layout-wrapper {
+    position: relative;
+    z-index: 2;
+}
+
+/* Text and image wrapper styling */
+.hero-text-content-wrapper {
+    color: #fff;
+    margin-bottom: 40px; /* Space between text and image on desktop */
+}
+.hero-image-wrapper {
+    max-width: 80%; /* Control the max size of the image */
+    margin: 0 auto; /* Center the image */
+}
+.hero-image-wrapper img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Animation Styles */
+.hero-content .wow { visibility: hidden; }
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+}
+.hero-content h5 {
+    font-size: 1.2rem; 
+    font-weight: 300;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+}
+
+
+/* ==========================================================
+            === RESPONSIVE STYLES FOR REDESIGN ====
+========================================================== */
+
+@media (max-width: 991px) {
+    /* KEY CHANGE: This flips the order on mobile! */
+    .hero-layout-wrapper {
+        display: flex;
+        flex-direction: column-reverse; /* This is the magic! */
+    }
+
+    .hero-section-redesigned {
+        min-height: auto; /* Let the content define the height */
+        padding: 120px 0 40px 0;
+    }
+
+    .hero-text-content-wrapper {
+        margin-top: 40px; /* Add space above the text when it's at the bottom */
+        margin-bottom: 0;
+    }
+    
+    .hero-content h1 { font-size: 2.8rem; }
+    .hero-content h5 { font-size: 1.1rem; }
+}
+
+@media (max-width: 767px) {
+    .hero-content h1 { font-size: 2.2rem; }
+    .gt-trust-section { justify-content: center; flex-wrap: wrap; }
+    .gt-trust-content { flex-basis: 45%; margin-bottom: 20px;}
+}
+        /* ==========================================================
            PREVIOUS CUSTOM STYLES (UNCHANGED)
            ========================================================== */
         /* Hero Section Styling */
         .hero-section.hero-1 {
-            height: 60vh;
+            height: 100vh;
             padding: 0 0 5% 8%; /* Added bottom and left padding */
             position: relative;
             overflow: hidden;
@@ -389,7 +498,6 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li><a href="index.html">Home</a></li>
-                                            <li><a href="pricing.html">Pages</a></li>
                                             <li><a href="event-details.html">Event</a></li>
                                             <li><a href="about.html">About Us</a></li>
                                             <li><a href="service.html">Services</a></li>
@@ -422,26 +530,28 @@
 
     <div class="search-popup"><div class="search-popup__overlay search-toggler"></div><div class="search-popup__content"><form role="search" method="get" class="search-popup__form" action="#"><input type="text" id="search" name="search" placeholder="Search Here..."><button type="submit" aria-label="search submit" class="search-btn"><span><i class="fa-regular fa-magnifying-glass"></i></span></button></form></div></div>
 
-    <section class="hero-section hero-1 fix">
-        <div class="hero-text-overlay">
-            <div class="container">
-                 <div class="hero-text-content">
-                    <h1>Contact Us</h1>
-                    <p>Need help planning your next event? Look no further. We can provide everything you need to ensure your event is a success.</p>
-                </div>
-            </div>
-        </div>
+    <section class="hero-section-redesigned"> 
         <div class="swiper hero-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="bg-image" style="background-image: url('assets/img/home-3/event/privateparty2.jpg');"></div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero2.jpg');"></div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="hero-layout-wrapper">
+    
+                <div class="hero-text-content-wrapper">
+                    <div class="hero-content">
+                        
+                        <div class="hero-text-content text-align-left">
+                            <h1 class="text-align-left">Contact Us</h1>
+                            <p>Need help planning your next event? Look no further. We can provide everything you need to ensure your event is a success.</p>
+                        </div>
+                        </div>
                 </div>
-                <div class="swiper-slide">
-                    <div class="bg-image" style="background-image: url('assets/img/home-1/hero/hero3.jpg');"></div>
-                </div>
+    
             </div>
         </div>
     </section>
