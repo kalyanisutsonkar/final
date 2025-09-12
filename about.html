@@ -417,7 +417,7 @@
     
     .footer-contact-info li {
         justify-content: center; /* Center align contact items */
-        text-align: left; /* Keep text within item left-aligned */
+        text-align: center;
     }
 }
 
@@ -691,12 +691,21 @@
             .new-footer-socials a:hover { color: #007bff; }
             .new-footer .footer-logo img { max-width: 250px; margin-bottom: 20px; }
             .new-footer p.footer-description { max-width: 800px; margin: 0 auto 50px auto; color: #ccc; line-height: 1.8; }
-            .footer-links-wrapper { text-align: left; padding-top: 40px; border-top: 1px solid #444; }
-            .footer-links-wrapper h5 { font-weight: bold; margin-bottom: 20px; color: #fff; text-transform: uppercase; }
-            .footer-links-wrapper ul { list-style: none; padding: 0; }
+            .footer-links-wrapper {  padding-top: 40px; border-top: 1px solid #444; }
+            .footer-links-wrapper h5 { font-weight: bold;
+                 margin-bottom: 20px;
+                 text-align:center !important; 
+                  color: #fff;
+                   text-transform: uppercase; 
+                }
+            .footer-links-wrapper ul { list-style: none; 
+                text-align: center !important; 
+    flex-wrap: wrap;
+    justify-content: center; 
+    padding: 0; }
             .footer-links-wrapper ul li a { color: #ccc; text-decoration: none; line-height: 2.2; transition: color 0.3s ease; }
             .footer-links-wrapper ul li a:hover { color: #fff; }
-            .footer-contact-info li { display: flex; align-items: flex-start; margin-bottom: 15px; color: #ccc; }
+            .footer-contact-info li { align-items: flex-start; margin-bottom: 15px; color: #ccc; }
             .footer-contact-info i { margin-right: 15px; margin-top: 5px; color: #fff; }
         </style>
 
@@ -819,7 +828,7 @@
                     <div class="col-lg-3 col-md-6 mb-4">
                         <h5>CONTACT INFO</h5>
                         <ul class="footer-contact-info">
-                            <li><i class="fas fa-map-marker-alt"></i><span>VIP Road, Khanij Nagar, Raipur, Chhattisgarh, India</span></li>
+                            
                             <li><i class="fas fa-phone"></i><span>+91 79742 91971</span></li>
                             <li><i class="fas fa-envelope"></i><span>manojaudiovision1234@gmail.com</span></li>
                         </ul>
